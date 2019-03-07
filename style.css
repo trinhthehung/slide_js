@@ -21,6 +21,9 @@ div.parent{
     background-size: cover;
     position: absolute;
     background-repeat: no-repeat;
+    opacity: 0;
+    visibility:hidden;
+    transition: 1s;
 }
 div.slide>img
 {
@@ -28,15 +31,26 @@ div.slide>img
 }
 img.tamgiac_left1{
     top: -115px;
+    animation-name: tamgiac_left1;
+    animation-duration: 1s;
+    animation-delay: 1.2s;
+    opacity: 0;
+    animation-fill-mode: forwards;
+    /* animation-iteration-count: infinite; */
 }
 
 img.tamgiac_left2 {
     top: -365px;
+    animation-name: tamgiac_left2;
+    animation-duration: 2s;
 }
+
 img.tamgiac_right
 {
     right: 0px;
     top: -143px;
+    animation-name: tamgiac_right;;
+    animation-duration: 2s;
 }
 
 
@@ -45,6 +59,7 @@ img.tamgiac_right
     position: absolute;
     margin-left: 50%;
     transform: translateX(-50%);
+
 }
 .btn_switch>ul>li{
     width: 25px;
@@ -77,6 +92,31 @@ img.tamgiac_right
     width: 70px;
 }
 
-.slide_hidden{
-    display: none;
+.slide_enable{
+    opacity: 1 !important;
+    visibility: visible !important;
 }
+@keyframes tamgiac_right{
+    /* 0%{}
+    40%{}
+    50%{}
+    60%{}
+    70%{}
+    80%{}
+    90%{} */
+    100%{}
+    from{right: -210px;}
+    to{right: 0px;}
+}
+@keyframes tamgiac_left1{
+    from{left: -600px;opacity: 1}
+    to{left: 0px;opacity: 1;}
+}
+@keyframes tamgiac_left2{
+    from{left:-800px;}
+    to{left: 0px;}
+}
+/* from{left: -600px;}
+to{left: 0px;} */
+
+
