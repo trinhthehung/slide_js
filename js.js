@@ -1,21 +1,57 @@
 document.addEventListener("DOMContentLoaded",function(){
-    btn_switch=Array.prototype.slice.call(document.querySelectorAll(".btn_switch>ul>li"));
-    slides =Array.prototype.slice.call(document.querySelectorAll(".parent>.slide"));
+   
+    var btn_switch=Array.prototype.slice.call(document.querySelectorAll(".btn_switch>ul>li"));
+    var slides =Array.prototype.slice.call(document.querySelectorAll(".parent>.slide"));
+    //event click switch slide
     btn_switch.forEach(element => {
+        
         element.addEventListener("click",function(){
+           
+           
             this.classList.add("btn_switch_clicked");
             btn_switch.forEach(e => {
             	if(e!=this)
             	{
                     e.classList.remove("btn_switch_clicked");
                     var slide= document.getElementById(e.getAttribute("data-slide"));
-                    // e.classList.remove("slide_enable");
                     slide.classList.remove("slide_enable");
                 }
                     var slide= document.getElementById(this.getAttribute("data-slide"));
                     slide.classList.add("slide_enable");
+                    clearInterval(_autoSwitchSlide);
+                    resetAutoSwitchSlide();
             })
         })
     });
-
+    //auto switch slide
+    function autoSwitchSlide(){
+        for(var i=0;i<btn_switch.length;i++)
+        {
+            for(var j=0;j<btn_switch.length;j++){
+                var slide= document.getElementById(btn_switch[j].getAttribute("data-slide"));
+                slide.classList.remove("slide_enable");
+            }
+            if(btn_switch[i].classList[0]==="btn_switch_clicked"){
+                btn_switch[i].classList.remove("btn_switch_clicked");
+                if(i===2)
+                {
+                        btn_switch[0].classList.add("btn_switch_clicked");
+                        var slide= document.getElementById(btn_switch[0].getAttribute("data-slide"));
+                        slide.classList.add("slide_enable");
+                }
+                else{
+                        btn_switch[i+1].classList.add("btn_switch_clicked");
+                        var slide= document.getElementById(btn_switch[i+1].getAttribute("data-slide"));
+                        slide.classList.add("slide_enable");
+                }
+                break;
+            }
+        }
+    }
+    // var autoSwitchSlide=setInterval(autoSwitchSlide,3000);
+    function resetAutoSwitchSlide()
+    {
+        _autoSwitchSlide=setInterval(autoSwitchSlide,3000);
+    }
+    resetAutoSwitchSlide();
 },false)

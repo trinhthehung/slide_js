@@ -23,32 +23,34 @@ div.parent{
     background-repeat: no-repeat;
     opacity: 0;
     visibility:hidden;
-    transition: 1s;
+    transition: 0.5s;
 }
 div.slide>img
 {
     position: absolute;
 }
-img.tamgiac_left1{
+.tamgiac_left1{
     top: -115px;
+}
+.amt_tamgiac_left1{
     animation-name: tamgiac_left1;
-    animation-duration: 1s;
-    animation-delay: 1.2s;
-    opacity: 0;
+    animation-duration: 2s;
     animation-fill-mode: forwards;
-    /* animation-iteration-count: infinite; */
 }
 
-img.tamgiac_left2 {
+.tamgiac_left2{
     top: -365px;
+}
+.amt_tamgiac_left2 {
     animation-name: tamgiac_left2;
     animation-duration: 2s;
 }
-
-img.tamgiac_right
-{
+.tamgiac_right{
     right: 0px;
     top: -143px;
+}
+.amt_tamgiac_right
+{
     animation-name: tamgiac_right;;
     animation-duration: 2s;
 }
@@ -97,26 +99,16 @@ img.tamgiac_right
     visibility: visible !important;
 }
 @keyframes tamgiac_right{
-    /* 0%{}
-    40%{}
-    50%{}
-    60%{}
-    70%{}
-    80%{}
-    90%{} */
-    100%{}
-    from{right: -210px;}
-    to{right: 0px;}
+    from{right: -210px ;}
+    to{right: 0px ;}
 }
 @keyframes tamgiac_left1{
-    from{left: -600px;opacity: 1}
-    to{left: 0px;opacity: 1;}
+    from{left: -600px ;}
+    to{left: 0px ;}
 }
 @keyframes tamgiac_left2{
-    from{left:-800px;}
-    to{left: 0px;}
+    from{left:-800px ;}
+    to{left: 0px ;}
 }
-/* from{left: -600px;}
-to{left: 0px;} */
 
 
